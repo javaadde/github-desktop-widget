@@ -1,0 +1,19 @@
+body {
+  margin: 0;
+  background: transparent;
+  font-family: Arial;
+  color: white;
+}
+
+#widget {
+  padding: 10px;
+  backdrop-filter: blur(15px);
+  background: rgba(0, 0, 0, 0.45);
+  border-radius: 12px;
+}
+
+#graph {
+  font-size: 14px;
+  margin-top: 8px;
+  white-space: pre-wrap;
+}
