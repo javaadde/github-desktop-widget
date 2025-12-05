@@ -1,12 +1,47 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <link rel="stylesheet" href="style.css" />
-  </head>
-  <body>
-    <div id="widget">
-      <h3>GitHub Contributions</h3>
-      <div id="graph">Loading…</div>
+
+<head>
+  <meta charset="UTF-8">
+  <title>GitHub Contributions</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+  <div id="widget">
+    <div id="drag-handle" class="drag-handle">
+      <span>⋮⋮</span>
     </div>
-  </body>
+    <div class="widget-content">
+      <!-- Month labels row -->
+      <div id="months-row"></div>
+
+      <div id="graph-container">
+        <div id="day-labels-col">
+          <div class="day-label"></div> <!-- Sun -->
+          <div class="day-label">Mon</div>
+          <div class="day-label"></div> <!-- Tue -->
+          <div class="day-label">Wed</div>
+          <div class="day-label"></div> <!-- Thu -->
+          <div class="day-label">Fri</div>
+          <div class="day-label"></div> <!-- Sat -->
+        </div>
+        <div id="graph-grid"></div>
+      </div>
+
+      <div id="legend">
+        <span class="legend-label">Less</span>
+        <div class="legend-square level-0"></div>
+        <div class="legend-square level-1"></div>
+        <div class="legend-square level-2"></div>
+        <div class="legend-square level-3"></div>
+        <div class="legend-square level-4"></div>
+        <span class="legend-label">More</span>
+      </div>
+    </div>
+    <div id="tooltip" class="tooltip"></div>
+  </div>
+  <script src="renderer.js"></script>
+</body>
+
 </html>

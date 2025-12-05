@@ -1,46 +1,26 @@
-const { app, BrowserWindow } = require("electron");
+const { app, BrowserWindow, ipcMain } = require("electron");
 const path = require("path");
-const { exec } = require("child_process");
 
 function createWindow() {
   const win = new BrowserWindow({
-    width: 300,
-    height: 200,
+    width: 340,
+    height: 220, // Increased slightly to fit month labels
     frame: false,
     transparent: true,
-    resizable: false,
+    resizable: true,
     hasShadow: false,
     skipTaskbar: true,
+    minWidth: 200,
+    minHeight: 220, // Lock height
+    maxHeight: 220, // Lock height
+    alwaysOnTop: false,
     webPreferences: {
-      preload: path.join(__dirname, "renderer.js"),
+      nodeIntegration: true,
+      contextIsolation: false,
     },
   });
 
   win.loadFile("index.html");
-
-  // ---- THIS PART MAKES THE WINDOW STICK TO THE DESKTOP ----
-  win.once("ready-to-show", () => {
-    attachToDesktop(win);
-  });
-}
-
-function attachToDesktop(win) {
-  // force Electron window into the Windows wallpaper layer
-  exec(`
-    powershell -command "
-    $progman = (Get-Process explorer).MainWindowHandle
-    $hwnd = ${win.getNativeWindowHandle().readInt32LE(0)}
-    [void](Add-Type @'
-    using System;
-    using System.Runtime.InteropServices;
-    public class Win32 {
-      [DllImport(\\"user32.dll\\")]
-      public static extern IntPtr SetParent(IntPtr hWndChild, IntPtr hWndNewParent);
-    }
-'@)
-    [Win32]::SetParent($hwnd, $progman)
-    "
-  `);
 }
 
 app.whenReady().then(createWindow);
