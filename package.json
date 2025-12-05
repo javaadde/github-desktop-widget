@@ -1,11 +1,40 @@
 {
   "name": "github-widget",
   "version": "1.0.0",
+  "description": "A desktop widget displaying GitHub contribution graph",
+  "author": "Your Name",
   "main": "main.js",
   "scripts": {
-    "start": "electron ."
+    "start": "electron .",
+    "build": "electron-builder",
+    "build:win": "electron-builder --win portable",
+    "package": "electron-packager . github-widget --platform=win32 --arch=x64 --out=dist --overwrite"
   },
   "dependencies": {
-    "electron": "^30.0.0"
+    "auto-launch": "^5.0.6"
+  },
+  "devDependencies": {
+    "electron": "^30.0.0",
+    "electron-builder": "^25.1.8",
+    "electron-packager": "^17.1.2"
+  },
+  "build": {
+    "appId": "com.github.widget",
+    "productName": "GitHub Widget",
+    "win": {
+      "target": [
+        {
+          "target": "portable",
+          "arch": [
+            "x64"
+          ]
+        }
+      ]
+    },
+    "files": [
+      "**/*",
+      "!**/*.md",
+      "!.gitignore"
+    ]
   }
 }
