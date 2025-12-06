@@ -1,10 +1,14 @@
 const { app, BrowserWindow, ipcMain } = require("electron");
 const path = require("path");
 const AutoLaunch = require("auto-launch");
+const Store = require("electron-store");
+
+// Initialize electron-store
+const store = new Store();
 
 // Configure auto-launch
 const autoLauncher = new AutoLaunch({
-  name: "GitHub Widget",
+  name: "GCG Widget",
   path: app.getPath("exe"),
 });
 
@@ -53,6 +57,16 @@ function createWindow() {
 
   ipcMain.handle("get-auto-launch-status", async () => {
     return await autoLauncher.isEnabled();
+  });
+
+  // Username management handlers
+  ipcMain.handle("get-username", () => {
+    return store.get("githubUsername", null);
+  });
+
+  ipcMain.handle("set-username", (event, username) => {
+    store.set("githubUsername", username);
+    return true;
   });
 }
 

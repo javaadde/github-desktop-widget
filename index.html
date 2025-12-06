@@ -3,7 +3,7 @@
 
 <head>
   <meta charset="UTF-8">
-  <title>GitHub Contributions</title>
+  <title>GCG Widget - GitHub Contribution Graph</title>
   <link rel="stylesheet" href="style.css" />
 </head>
 
@@ -12,12 +12,17 @@
     <div id="drag-handle" class="drag-handle">
       <span>⋮⋮</span>
     </div>
+    <div class="settings-container">
+      <button id="settings-btn" class="settings-btn" title="Menu">⚙</button>
+      <div id="settings-dropdown" class="settings-dropdown">
+        <div class="dropdown-item" id="change-username-btn">Settings</div>
+        <div class="dropdown-item" id="close-app-btn">Close</div>
+      </div>
+    </div>
     <div class="widget-content">
-      <!-- Month labels row -->
-      <div id="months-row"></div>
-
-      <div id="graph-container">
-        <div id="day-labels-col">
+      <div style="display: flex; flex: 1; overflow: hidden; position: relative;">
+        <!-- Fixed Day Labels -->
+        <div id="day-labels-col" style="margin-top: 18px; flex-shrink: 0; z-index: 10; background: transparent;">
           <div class="day-label"></div> <!-- Sun -->
           <div class="day-label">Mon</div>
           <div class="day-label"></div> <!-- Tue -->
@@ -26,7 +31,18 @@
           <div class="day-label">Fri</div>
           <div class="day-label"></div> <!-- Sat -->
         </div>
-        <div id="graph-grid"></div>
+
+        <!-- Scrollable Graph Area -->
+        <div id="scroll-container"
+          style="overflow-x: auto; flex-grow: 1; display: flex; flex-direction: column; -webkit-overflow-scrolling: touch; margin-left: 4px; padding-bottom: 8px;">
+          <!-- Month labels row -->
+          <div id="months-row"
+            style="display: flex; gap: 4px; margin-left: 0; height: 14px; margin-bottom: 4px; min-width: max-content;">
+          </div>
+
+          <!-- Graph Grid -->
+          <div id="graph-grid" style="display: flex; gap: 4px; min-width: max-content;"></div>
+        </div>
       </div>
 
       <div id="legend">
@@ -41,6 +57,20 @@
     </div>
     <div id="tooltip" class="tooltip"></div>
   </div>
+
+  <!-- Setup Modal -->
+  <div id="setup-modal" class="modal">
+    <div class="modal-content">
+      <h2>GitHub Username Setup</h2>
+      <p>Enter your GitHub username to display your contribution graph:</p>
+      <input type="text" id="username-input" placeholder="Enter GitHub username" autocomplete="off" />
+      <div class="modal-buttons">
+        <button id="save-username-btn" class="primary-btn">Save</button>
+      </div>
+      <p class="error-message" id="error-message"></p>
+    </div>
+  </div>
+
   <script src="renderer.js"></script>
 </body>
 

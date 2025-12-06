@@ -8,33 +8,46 @@
     "start": "electron .",
     "build": "electron-builder",
     "build:win": "electron-builder --win portable",
-    "package": "electron-packager . github-widget --platform=win32 --arch=x64 --out=dist --overwrite"
+    "package": "electron-packager . \"github-widget\" --platform=win32 --arch=x64 --out=build_output --overwrite --icon=icon.png"
   },
   "dependencies": {
-    "auto-launch": "^5.0.6"
+    "auto-launch": "^5.0.6",
+    "electron-store": "^8.1.0"
   },
   "devDependencies": {
+    "7zip-bin": "^5.2.0",
     "electron": "^30.0.0",
     "electron-builder": "^25.1.8",
-    "electron-packager": "^17.1.2"
+    "electron-packager": "^17.1.2",
+    "png-to-ico": "^3.0.1"
   },
   "build": {
     "appId": "com.github.widget",
-    "productName": "GitHub Widget",
+    "productName": "github-widget",
+    "directories": {
+      "output": "build_output"
+    },
     "win": {
-      "target": [
-        {
-          "target": "portable",
-          "arch": [
-            "x64"
-          ]
-        }
-      ]
+      "target": "nsis",
+      "icon": "icon.png",
+      "sign": null
+    },
+    "nsis": {
+      "oneClick": false,
+      "allowToChangeInstallationDirectory": true,
+      "createDesktopShortcut": true,
+      "createStartMenuShortcut": true,
+      "shortcutName": "GitHub Widget",
+      "uninstallDisplayName": "GitHub Widget"
     },
     "files": [
-      "**/*",
-      "!**/*.md",
-      "!.gitignore"
-    ]
+      "main.js",
+      "renderer.js",
+      "index.html",
+      "style.css",
+      "icon.png",
+      "package.json"
+    ],
+    "compression": "maximum"
   }
 }
