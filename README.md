@@ -4,10 +4,10 @@
 
 **A beautiful desktop widget to display your GitHub contribution graph on Windows**
 
-![Widget Preview](https://github.com/javaadde/github-desktop-widget/asset/Screenshot.png)
+![Widget Preview](/asset/Screenshot.png)
 
-[![Download](https://img.shields.io/badge/Download-Latest%20Release-brightgreen?style=for-the-badge)](https://github.com/javaadde/github-desktop-widget/asset/github-widget%20Setup%201.0.0.exe)
-[![Version](https://img.shields.io/badge/version-1.0.0-blue?style=for-the-badge)](https://github.com/javaadde/github-desktop-widget/releases/download/v.1.0.0/github-widget%20Setup%201.0.0.exe)
+[![Download](https://img.shields.io/badge/Download-Latest%20Release-brightgreen?style=for-the-badge)](/asset/github-widget%20Setup%201.0.0.exe)
+[![Version](https://img.shields.io/badge/version-1.0.0-blue?style=for-the-badge)](/releases/download/v.1.0.0/github-widget%20Setup%201.0.0.exe)
 [![License](https://img.shields.io/badge/license-MIT-orange?style=for-the-badge)](LICENSE)
 
 </div>
@@ -31,7 +31,7 @@
 ### Step 1: Download
 Click the button below to download the installer:
 
-**[⬇️ Download GitHub Widget Setup (77 MB)](https://github.com/javaadde/github-desktop-widget/releases/download/v.1.0.0/github-widget%20Setup%201.0.0.exe)**
+**[⬇️ Download GitHub Widget Setup (77 MB)](/releases/download/v.1.0.0/github-widget%20Setup%201.0.0.exe)**
 
 ### Step 2: Install
 1. Run `github-widget Setup 1.0.0.exe`
