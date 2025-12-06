@@ -29,9 +29,10 @@
 ## 📥 Download & Installation
 
 ### Step 1: Download
-Click the button below to download the installer:
 
-**[⬇️ Download GitHub Widget Setup (77 MB)](https://github.com/javaadde/github-desktop-widget/releases/download/v.1.0.0/github-widget%20Setup%201.0.0.exe)**
+<a href="/releases/download/v.1.0.0/github-widget%20Setup%201.0.0.exe" download>
+  ⬇️ Download GitHub Widget Setup (77 MB)
+</a>
 
 ### Step 2: Install
 1. Run `github-widget Setup 1.0.0.exe`
